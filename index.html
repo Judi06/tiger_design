@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIGER DESIGN | Avant-Garde Fashion Lab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --black: #000;
+            --white: #fff;
+            --primary: #FF2A6D;
+            --secondary: #05D9E8;
+            --accent: #D1F7FF;
+            --neon: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--secondary);
+            --font-main: 'Bebas Neue', cursive;
+            --font-alt: 'Rajdhani', sans-serif;
+        }
+
+        /* Base radicale */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: var(--font-alt);
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        /* Typographie disruptive */
+        h1, h2, h3, h4 {
+            font-family: var(--font-main);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        h1 { font-size: clamp(3rem, 10vw, 8rem); }
+        h2 { font-size: clamp(2rem, 6vw, 4rem); }
+
+        /* Effets néon */
+        .neon-text {
+            color: var(--primary);
+            text-shadow: var(--neon);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: var(--neon);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        /* Navigation futuriste */
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero section - Défilé numérique */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            mix-blend-mode: screen;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .hero p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        /* Bouton cyberpunk */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--primary);
+            font-family: var(--font-main);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--black);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Sections en diagonale */
+        .section {
+            padding: 8rem 0;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background: linear-gradient(45deg, rgba(255,42,109,0.1), rgba(5,217,232,0.1));
+            transform: rotateZ(-2deg);
+            z-index: -1;
+        }
+
+        .section:nth-child(even)::before {
+            transform: rotateZ(2deg);
+            background: linear-gradient(-45deg, rgba(255,42,109,0.1), rgba(5,217,232,0.1));
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Cartes holographiques */
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0;
+            padding: 2rem;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255,42,109,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255,42,109,0.3);
+        }
+
+        .card:hover::before {
+            top: 100%;
+            left: 100%;
+        }
+
+        /* Grille asymétrique */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-item:nth-child(odd) {
+            transform: rotateZ(-1deg);
+        }
+
+        .grid-item:nth-child(even) {
+            transform: rotateZ(1deg);
+        }
+
+        /* Slider glitch */
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border: 1px solid var(--primary);
+            box-shadow: var(--neon);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+
+        /* Formulaire futuriste */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--primary);
+            color: var(--white);
+            font-family: var(--font-alt);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(5,217,232,0.2);
+        }
+
+        /* Footer cyber */
+        footer {
+            background: linear-gradient(to top, #000, #111);
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--black);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(0,0,0,0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.5s ease;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 1001;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation futuriste -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">TIGER DESIGN</a>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">Manifeste</a></li>
+                <li><a href="#formations">Académie</a></li>
+                <li><a href="#gallery">Archives</a></li>
+                <li><a href="#atelier">Laboratoire</a></li>
+                <li><a href="#contact">Fréquences</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero - Défilé numérique -->
+    <section class="hero" id="home">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-fabric-textile-background-17647-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="neon-text">REDÉFINIR <br>LES CODES</h1>
+            <p>TIGER DESIGN n'est pas une école, c'est un manifeste vivant. Nous déconstruisons les traditions pour créer la mode de demain.</p>
+            <a href="#formations" class="btn">Rejoindre la révolution</a>
+        </div>
+    </section>
+
+    <!-- About - Manifeste -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="neon-text">Notre Manifeste</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>01. Subversion</h3>
+                        <p>Nous enseignons l'art de défier les normes. La mode est un langage, parlons-le avec audace.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>02. Alchimie</h3>
+                        <p>Transformer la matière en émotion. Nos ateliers sont des laboratoires de création pure.</p>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>03. Futurisme</h3>
+                        <p>Nous ne suivons pas les tendances, nous les inventons. La mode de demain se crée ici.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations - Académie -->
+    <section class="section" id="formations">
+        <div class="container">
+            <h2 class="neon-text">L'Académie</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>STYLISME QUANTIQUE</h3>
+                        <p>Dépasser les dimensions du design traditionnel. Créez des collections qui défient le temps.</p>
+                        <ul>
+                            <li>Durée: 2 ans</li>
+                            <li>Rentrée: 05.05.2025</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>MODÉLISME HOLOGRAPHIQUE</h3>
+                        <p>Patronage dans l'espace 3D, techniques de construction non-euclidiennes.</p>
+                        <ul>
+                            <li>Durée: 2 ans</li>
+                            <li>Rentrée: 05.05.2025</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>CYBER COUTURE</h3>
+                        <p>Fusion du sur-mesure traditionnel et des technologies vestimentaires futuristes.</p>
+                        <ul>
+                            <li>Durée: 2 ans</li>
+                            <li>Rentrée: 05.05.2025</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>MANNEQUINAT X.0</h3>
+                        <p>Performance corporelle augmentée pour les défilés de l'ère numérique.</p>
+                        <ul>
+                            <li>Durée: 1 an</li>
+                            <li>Rentrée: 05.05.2025</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery - Archives -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2 class="neon-text">Archives Créatives</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Collection Nexus">
+                    <div class="slide-caption">
+                        <h3>COLLECTION NEXUS</h3>
+                        <p>Synthèse organique/numérique - Saison 24</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Prototype 7">
+                    <div class="slide-caption">
+                        <h3>PROTOTYPE 7</h3>
+                        <p>Robes à morphologie variable</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Défilé Hologramme">
+                    <div class="slide-caption">
+                        <h3>DÉFILÉ HOLOGRAMME</h3>
+                        <p>Présentation réalité mixte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atelier - Laboratoire -->
+    <section class="section" id="atelier">
+        <div class="container">
+            <h2 class="neon-text">Le Laboratoire</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>CRÉATIONS SUR MESURE</h3>
+                        <p>Nous concevons des pièces uniques pour clients avant-gardistes. Chaque création est une expérience.</p>
+                        <ul>
+                            <li>Robes cyber-gothiques</li>
+                            <li>Costumes néo-futuristes</li>
+                            <li>Accessoires intelligents</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>RECHERCHE & DÉVELOPPEMENT</h3>
+                        <p>Notre lab expérimente avec:</p>
+                        <ul>
+                            <li>Tissus réactifs</li>
+                            <li>Fibres luminescentes</li>
+                            <li>Structures transformables</li>
+                            <li>Textiles bio-tech</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact - Fréquences -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="neon-text">Émetteur/Récepteur</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>COORDONNÉES</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 2ème von à gauche après l'église Saint Michel de Hêvié Houinnin</p>
+                        <p><i class="fas fa-clock"></i> Lundi-Vendredi: 9H00-16H00</p>
+                        <p><i class="fas fa-phone"></i> +229 XX XX XX XX</p>
+                        <p><i class="fas fa-envelope"></i> contact@tigerdesign.com</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                            <a href="#"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card">
+                        <h3>MESSAGE ENCRYPTÉ</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Identifiant" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Fréquence" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option>Sujet du message</option>
+                                    <option>Admission Académie</option>
+                                    <option>Consultation Laboratoire</option>
+                                    <option>Autre transmission</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="4" placeholder="Contenu encrypté" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Émettre</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer cyber -->
+    <footer>
+        <div class="container">
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>TIGER DESIGN</h3>
+                    <p>Centre de révolution vestimentaire depuis 2025</p>
+                </div>
+                <div class="grid-item">
+                    <h3>FRÉQUENCES</h3>
+                    <p>Abonnez-vous à notre transmission mensuelle</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Votre fréquence" required>
+                        </div>
+                        <button type="submit" class="btn">Synchroniser</button>
+                    </form>
+                </div>
+            </div>
+            <p style="margin-top: 3rem; text-align: center;">© 2025 TIGER DESIGN - Tous droits déconstruits</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Slider
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Effet de parallaxe
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelector('.hero-content').style.transform = 
+                `translate(${x * 20}px, ${y * 20}px)`;
+            
+            document.querySelectorAll('.grid-item').forEach((item, index) => {
+                item.style.transform = 
+                    `rotateZ(${(index % 2 ? 1 : -1)}deg) translate(${x * 10}px, ${y * 10}px)`;
+            });
+        });
+
+        // Effet glitch aléatoire
+        setInterval(() => {
+            if (Math.random() > 0.9) {
+                document.body.classList.add('glitch');
+                setTimeout(() => {
+                    document.body.classList.remove('glitch');
+                }, 100);
+            }
+        }, 3000);
+    </script>
+
+    <!-- Fonts futuristes -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+</body>
+</html>
